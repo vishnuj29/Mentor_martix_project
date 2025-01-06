@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mentor Matrix</title>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/logo.webp" type="">
+
+  <title> Mentor Matrix </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <style>
+    .cta-section {
+    background-color: #d5c49e;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.cta-container h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333; /* Dark text */
+}
+
+.cta-container p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #555; /* Slightly lighter text */
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3b8b5d; /* Primary button color */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #2da778; /* Darker blue on hover */
+}
+
+.cta-button.secondary {
+    background-color: #6c757d; /* Secondary button color */
+}
+
+.cta-button.secondary:hover {
+    background-color: #5a6268; /* Darker secondary color on hover */
+}
+
+    
+    /* Section styling */
+    .specialty-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #e2ca97, #d0bf99);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .specialty-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+    
+    .container {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #fff;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      animation: fadeIn 2s ease-in-out;
+    }
+    
+    .specialty-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    
+    .specialty-card {
+      background: #4e522f;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      transform: scale(1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .specialty-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+      border-radius: 15px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .specialty-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+    
+    .specialty-card:hover::after {
+      opacity: 1;
+    }
+    
+    .card-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #fff;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+    }
+    
+    .card-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #e1e1e1;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .section-title {
+        font-size: 2rem;
+      }
+    
+      .specialty-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    
+      .specialty-card {
+        padding: 20px;
+      }
+    
+      .specialty-card h3 {
+        font-size: 1.3rem;
+      }
+    
+      .specialty-card p {
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .specialty-cards {
+        grid-template-columns: 1fr;
+      }
+    
+      .section-title {
+        font-size: 1.8rem;
+      }
+    
+      .specialty-card h3 {
+        font-size: 1.2rem;
+      }
+    
+      .specialty-card p {
+        font-size: 0.8rem;
+      }
+    }
+    </style>
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="images/Untitled design(2).png" alt="wallpaper">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Mentor Matrix
+              <h3>"Empower Your Journey with Expert Mentorship"
+              </h3>
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto ">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#c1">Mentors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="slot.html">Slots</a>
+              </li>
+            </ul>
+            <div class="user_option">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                  <g>
+                  </g>
+                </svg>
+              </a>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                </button>
+              </form>
+              <a href="login.html" class="order_online">
+                Login/Register 
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Mentorship Provider
+                    </h1>
+                    <p>
+                      Our goal is to bridge the gap between experience and ambition, empowering students to navigate their career paths confidently and achieve their professional goals for free of cost. MentorMatrix fosters collaboration, growth, and success through personalized mentorship and community support.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Real-Time Chat
+                    </h1>
+                    <p>
+                      Real-time chat feature that allow mentors and mentees to connect instantly. Whether you need quick advice on a project, career tips, or academic support, our chat feature ensures that help is just a message away. Stay in touch with your mentor whenever you need, fostering an interactive, supportive, and dynamic learning environment.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Select Suitable Slots
+                    </h1>
+                    <p>
+                      At MentorMatrix, we believe in making mentorship accessible and convenient. With our automated calendar booking system, you can easily select the time slots that work best for you and your mentor. Whether you have a busy schedule or need last-minute advice, our platform allows both mentors and mentees to find mutually available times for a seamless learning experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <ol class="carousel-indicators">
+            <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+            <li data-target="#customCarousel1" data-slide-to="1"></li>
+            <li data-target="#customCarousel1" data-slide-to="2"></li>
+          </ol>
+        </div>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+  <!-- start importance -->
+  <section class="mentoring-section">
+    <div class="content">
+        <h2>Transforming Lives Through Mentorship</h2>
+        <p>
+            Mentoring builds connections that foster growth, learning, and development. 
+            It empowers individuals to overcome challenges, achieve goals, and unlock their full potential. 
+            Through guidance and support, mentors shape the leaders of tomorrow.
+        </p>
+        <p>It provides access to valuable connections, inspires motivation, and ensures accountability for personal and professional success. Mentors empower individuals to reach their full potential with lifelong lessons and support.</p>
+        <p>
+          Mentorship bridges the gap between knowledge and application. It helps individuals learn faster and achieve their goals efficiently.
+            Whether you're seeking advice or offering it, mentoring creates a lasting impact on personal and professional lives.
+            <br><br>
+        </p>
+        <div><b><b>"Unlock your potential through personalized guidance, actionable insights, and unwavering support from experienced mentors."
+        </div>
+    </div>
+    <div class="illustration">
+        <img src="images/mentor.webp" alt="Mentoring illustration">
+    </div>
+</section>
+<!-- end importance -->
+ <!--start speciality -->
+ <section id="specialty" class="specialty-section">
+  <div class="container">
+    <h2 class="section-title">Our Speciality</h2>
+    <div class="specialty-cards">
+      <div class="specialty-card">
+        <div class="card-content">
+          <h3>Expert Mentorship</h3>
+          <p>Access experienced mentors who offer valuable guidance, actionable insights, and unwavering support to help you succeed.</p>
+        </div>
+      </div>
+      <div class="specialty-card">
+        <div class="card-content">
+          <h3>Real-Time Chat</h3>
+          <p>Engage with mentors instantly via real-time chat for quick advice, project support, or career tips.</p>
+        </div>
+      </div>
+      <div class="specialty-card">
+        <div class="card-content">
+          <h3>Convenient Slot Selection</h3>
+          <p>Effortlessly select mutually available time slots for mentorship sessions with our automated calendar system.</p>
+        </div>
+      </div>
+      <div class="specialty-card">
+        <div class="card-content">
+          <h3>Free of Cost</h3>
+          <p>Enjoy mentorship at no cost, making it accessible to everyone who needs guidance on their journey.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end speciality -->
+  <!-- end offer section -->
+  <section class="mentor_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2 id="c1" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bolder;">
+          Our Mentors
+        </h2>
+      </div>
+      <div class="filters-content">
+        <div class="row grid">
+          <!-- Mentor 1 -->
+          <div class="col-sm-6 col-lg-3 all mentor">
+            <div class="box mentor-box">
+              <div class="img-box">
+                <img src="images/v.jpg.jpeg" alt="Mentor 1">
+              </div>
+              <div class="detail-box">
+                <h5>ROHIT GUPTA</h5>
+                <p>Sr Technology Architect & AI/ML Leader</p>
+              </div>
+            </div>
+          </div>
+          <!-- Mentor 2 -->
+          <div class="col-sm-6 col-lg-3 all mentor">
+            <div class="box mentor-box">
+              <div class="img-box">
+                <img src="images/c.jpg" alt="Mentor 2">
+              </div>
+              <div class="detail-box">
+                <h5>Takuya Kitazawa</h5>
+                <p>Freelance Software Developer @ Self-employed, ex-Amazon</p>
+              </div>
+            </div>
+          </div>
+          <!-- Mentor 3 -->
+          <div class="col-sm-6 col-lg-3 all mentor">
+            <div class="box mentor-box">
+              <div class="img-box">
+                <img src="images/l.jpg" alt="Mentor 3">
+              </div>
+              <div class="detail-box">
+                <h5>Sudeep Kumar
+                 </h5>
+                <p> Azure Data Engineering Manager @ Tredence Inc.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Mentor 4 -->
+          <div class="col-sm-6 col-lg-3 all mentor">
+            <div class="box mentor-box">
+              <div class="img-box">
+                <img src="images/k.jpg" alt="Mentor 4">
+              </div>
+              <div class="detail-box">
+                <h5>Ashveen Bansal</h5>
+                <p>Software Engineer III @ Google</p>
+              </div>
+            </div>
+          </div>
+          <!-- Mentor 5 -->
+          <div class="col-sm-6 col-lg-3 all mentor">
+            <div class="box mentor-box">
+              <div class="img-box">
+                <img src="images/p.jpg" alt="Mentor 5">
+              </div>
+              <div class="detail-box">
+                <h5>Hasan Dayoub</h5>
+                <p>SoLead AI Product Manager @ Future LabY</p>
+              </div>
+            </div>
+          </div>
+          <!-- Mentor 6 -->
+          <div class="col-sm-6 col-lg-3 all mentor">
+            <div class="box mentor-box">
+              <div class="img-box">
+                <img src="images/q.jpg" alt="Mentor 6">
+              </div>
+              <div class="detail-box">
+                <h5>Setu Shah</h5>
+                <p>Product Strategy Director @ Oracle</p>
+              </div>
+            </div>
+          </div>
+          <!-- Mentor 7 -->
+          <div class="col-sm-6 col-lg-3 all mentor">
+            <div class="box mentor-box">
+              <div class="img-box">
+                <img src="images/u.jpg" alt="Mentor 7">
+              </div>
+              <div class="detail-box">
+                <h5>Logapriya V
+                  </h5>
+                <p>Data Scientist @ Amazon India (Ex Mu Sigma)</p>
+              </div>
+            </div>
+          </div>
+          <!-- Mentor 8 -->
+          <div class="col-sm-6 col-lg-3 all mentor">
+            <div class="box mentor-box">
+              <div class="img-box">
+                <img src="images/i.jpg" alt="Mentor 8">
+              </div>
+              <div class="detail-box">
+                <h5>Gautam Oswal
+                 </h5>
+                <p> Senior Business Manager @ Uber</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="mentorship.html" class="btn btn-primary load-more">Load More</a>
+      </div>
+    </div>
+  </section>
+   
+  <!-- end about section -->
+
+  <!-- book section -->
+  <section class="book_section custom_layout_padding">
+    <div class="custom_container">
+      <div class="heading_container">
+        <h2 style="color: #445538; font-weight: bolder; font-family: sans-serif; text-align: justify;">
+          Book Your Slot
+        </h2>
+      </div>
+      <div class="form_wrapper">
+        <div class="form_container">
+          <form action="">
+            <div>
+              <input type="text" class="custom_form_control" placeholder="Your Name" />
+            </div>
+            <div>
+              <input type="text" class="custom_form_control" placeholder="Phone Number" />
+            </div>
+            <div>
+              <input type="email" class="custom_form_control" placeholder="Your Email" />
+            </div>
+            <div>
+              <input type="date" id="bookingDate" class="custom_form_control">
+            </div>
+            <div>
+              <select id="bookingTime" class="custom_form_control">
+                <option value="" disabled selected>Select Time</option>
+                <option value="09:00">09:00 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="01:00">01:00 PM</option>
+                <option value="02:00">02:00 PM</option>
+                <option value="03:00">03:00 PM</option>
+                <option value="04:00">04:00 PM</option>
+              </select>
+            </div>
+            <div>
+              <select id="mentorSelect" class="custom_form_control">
+                <option value="" disabled selected>Select Mentor</option>
+                <option value="Mentor 1">Mentor 1</option>
+                <option value="Mentor 2">Mentor 2</option>
+                <option value="Mentor 3">Mentor 3</option>
+                <option value="Mentor 4">Mentor 4</option>
+              </select>
+            </div>
+            <div class="btn_box">
+              <button type="button" class="custom_button" onclick="confirmBooking()">
+                Book Now
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+
+  <!-- end book section -->
+  <!-- cta section start -->
+  <section class="cta-section">
+    <div class="cta-container">
+        <h2>Ready to Transform Lives?</h2>
+        <p>Whether you're looking to grow with guidance or share your expertise, our platform connects mentors and mentees for impactful journeys.</p>
+        <div class="cta-buttons">
+            <a href="slot.html" class="cta-button">Find Your Mentor</a>
+            <a href="login.html" class="cta-button secondary">Become a Mentor</a>
+        </div>
+    </div>
+</section>
+<!-- cta section end -->
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-md-4 footer-col">
+                <div class="footer_contact">
+                    <h4>Contact Us</h4>
+                    <div class="contact_link_box">
+                        <a href="#">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>123 Mentor Lane, Cityville</span>
+                        </a>
+                        <a href="tel:+011234567890">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span>Call +01 1234567890</span>
+                        </a>
+                        <a href="mailto:support@mentormatrix.com">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span>support@mentormatrix.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Branding and Social Media -->
+            <div class="col-md-4 footer-col">
+                <div class="footer_detail">
+                    <a href="#" class="footer-logo">
+                        Mentor Matrix
+                    </a>
+                    <p>
+                        Connecting minds, shaping futures. Our platform bridges mentors and users seamlessly through scheduled interactions.
+                    </p>
+                    <div class="footer_social">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Top -->
+            <div class="col-md-4 footer-col">
+                <h4>Quick Navigation</h4>
+                <p>
+                    <a href="#top" class="back-to-top" style="color: #ffcc00; text-decoration: none;">Back to Top ↑</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-info">
+            <p>
+                &copy; <span id="displayYear"></span> Mentor Matrix. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>

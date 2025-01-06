@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - MentorMatrix</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #f4f4f9;
+            --text-color: #333;
+            --font-family: 'Poppins', sans-serif;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .about-container {
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 800px;
+            padding: 30px;
+            text-align: center;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: var(--border-radius);
+        }
+
+        .section-title {
+            margin-top: 20px;
+            color: var(--primary-color);
+            font-size: 1.4em;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        ul li {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        ul li:hover {
+            transform: translateY(-5px);
+            background: #45a049;
+        }
+
+        .cta {
+            margin-top: 20px;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: var(--border-radius);
+            transition: background 0.3s;
+        }
+
+        .cta a:hover {
+            background: #45a049;
+        }
+
+        .tagline {
+            margin: 20px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <h1>About MentorMatrix</h1>
+        <p>Welcome to <strong>MentorMatrix</strong>, a platform designed to empower college students through meaningful mentorship connections. At MentorMatrix, we believe that guidance from experienced peers can be the key to unlocking your full potential.</p>
+
+        <div class="tagline">"Your Success, Our Mission. Empowering Students, One Connection at a Time."</div>
+
+        <img src="images/3.webp" alt="Mentorship Image">
+
+        <h2 class="section-title">Our Mission</h2>
+        <p>Our mission is to bridge the gap between college juniors and seniors by creating a supportive community where students can openly discuss their challenges, share experiences, and seek advice. Whether it’s academic stress, placement preparation, internship guidance, or simply navigating college life, MentorMatrix is here to help.</p>
+
+        <h2 class="section-title">What We Offer</h2>
+        <ul>
+            <li><strong>One-on-One Mentorship:</strong> Connect with mentors who have walked in your shoes and understand the journey.</li>
+            <li><strong>Academic Support:</strong> Get help with coursework, study tips, and resources to stay on track.</li>
+            <li><strong>Placement and Internship Guidance:</strong> Prepare for resumes, interviews, and career opportunities.</li>
+            <li><strong>Stress Management:</strong> Talk to your mentor about handling stress and balancing college life.</li>
+            <li><strong>Real-Time Chat:</strong> Stay connected with your mentor anytime, anywhere.</li>
+        </ul>
+
+        <h2 class="section-title">Why Choose MentorMatrix?</h2>
+        <p>MentorMatrix isn’t just a platform; it’s a community built on trust, support, and growth. By connecting with someone who has been in your position, you gain insights that only experience can provide. Our mentors are dedicated to helping you succeed, not just in college but beyond.</p>
+
+        <div class="tagline">"Guidance, Growth, and Greatness Await You."</div>
+
+        <div class="cta">
+            <a href="index.html">Join Us Today</a>
+        </div>
+    </div>
+</body>
+</html>
+

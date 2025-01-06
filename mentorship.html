@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Matrix</title>
+    <link rel="shortcut icon" href="images/logo.webp" type="">
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #fff9e6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fceabb;
+            color: #444;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px #fff;
+            border-bottom: 5px solid #ffcc80;
+        }
+
+        .mentors-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .mentor-card {
+            background: #fff;
+            border: 3px solid #ffcc80;
+            border-radius: 10px;
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mentor-card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        .mentor-photo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            background-color: #ffe6b3;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #ffcc80;
+        }
+
+        .mentor-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #444;
+            margin: 10px 0;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            text-decoration-color: #ffcc80;
+        }
+
+        .mentor-qualification {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .mentor-interest {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .mentor-card button {
+            background-color: #ffc107;
+            color: white;
+            border: 2px solid #ff9800;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .mentor-card button:hover {
+            background-color: #ff9800;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+<header>Meet Our Mentors</header>
+
+<div class="mentors-container">
+    <!-- Mentor 1 -->
+    <div class="mentor-card">
+        <div class="mentor-photo" style="background-image: url('mentor1.jpg');"></div>
+        <div class="mentor-name">Dr. Alice Johnson</div>
+        <div class="mentor-qualification">PhD in Computer Science</div>
+        <div class="mentor-interest">Artificial Intelligence, Machine Learning</div>
+        <button>Contact</button>
+    </div>
+
+    <!-- Mentor 2 -->
+    <div class="mentor-card">
+        <div class="mentor-photo" style="background-image: url('mentor2.jpg');"></div>
+        <div class="mentor-name">Mr. Bob Smith</div>
+        <div class="mentor-qualification">MSc in Data Analytics</div>
+        <div class="mentor-interest">Big Data, Cloud Computing</div>
+        <button>Contact</button>
+    </div>
+
+    <!-- Mentor 3 -->
+    <div class="mentor-card">
+        <div class="mentor-photo" style="background-image: url('mentor3.jpg');"></div>
+        <div class="mentor-name">Ms. Carol Davis</div>
+        <div class="mentor-qualification">MBA in Marketing</div>
+        <div class="mentor-interest">Digital Marketing, Brand Strategy</div>
+        <button>Contact</button>
+    </div>
+
+    <!-- Mentor 4 -->
+    <div class="mentor-card">
+        <div class="mentor-photo" style="background-image: url('mentor4.jpg');"></div>
+        <div class="mentor-name">Prof. David Lee</div>
+        <div class="mentor-qualification">PhD in Physics</div>
+        <div class="mentor-interest">Quantum Mechanics, Astrophysics</div>
+        <button>Contact</button>
+    </div>
+
+    <!-- Mentor 5 -->
+    <div class="mentor-card">
+        <div class="mentor-photo" style="background-image: url('mentor5.jpg');"></div>
+        <div class="mentor-name">Ms. Emma Watson</div>
+        <div class="mentor-qualification">MSc in Psychology</div>
+        <div class="mentor-interest">Behavioral Psychology, Counseling</div>
+        <button>Contact</button>
+    </div>
+
+    <!-- Mentor 6 -->
+    <div class="mentor-card">
+        <div class="mentor-photo" style="background-image: url('mentor6.jpg');"></div>
+        <div class="mentor-name">Mr. Frank Thompson</div>
+        <div class="mentor-qualification">BTech in Mechanical Engineering</div>
+        <div class="mentor-interest">Robotics, 3D Printing</div>
+        <button>Contact</button>
+    </div>
+
+    <!-- Mentor 7 -->
+    <div class="mentor-card">
+        <div class="mentor-photo" style="background-image: url('mentor7.jpg');"></div>
+        <div class="mentor-name">Dr. Grace Miller</div>
+        <div class="mentor-qualification">PhD in Environmental Science</div>
+        <div class="mentor-interest">Sustainability, Renewable Energy</div>
+        <button>Contact</button>
+    </div>
+
+    <!-- Mentor 8 -->
+    <div class="mentor-card">
+        <div class="mentor-photo" style="background-image: url('mentor8.jpg');"></div>
+        <div class="mentor-name">Mr. Henry Adams</div>
+        <div class="mentor-qualification">MFA in Fine Arts</div>
+        <div class="mentor-interest">Graphic Design, Animation</div>
+        <button>Contact</button>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Matrix</title>
+    <link rel="shortcut icon" href="images/logo.webp" type="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+        .chat-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .chat-header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background: white;
+        }
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 0 0 0 8px;
+        }
+        .chat-input button {
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 0 0 8px 0;
+        }
+        .chat-input button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book a Mentorship Slot</h1>
+        <form id="slotBookingForm">
+            <label for="mentor">Select Mentor:</label>
+            <select id="mentor" name="mentor" required>
+                <option value="">-- Choose Mentor --</option>
+                <option value="mentor1">John Doe</option>
+                <option value="mentor2">Jane Smith</option>
+                <option value="mentor3">Michael Johnson</option>
+            </select>
+
+            <label for="date">Choose Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label>Choose Time Slot:</label>
+            <div class="time-slots" id="timeSlots">
+                <div class="time-slot" data-time="10:00 AM">10:00 AM</div>
+                <div class="time-slot" data-time="11:00 AM">11:00 AM</div>
+                <div class="time-slot" data-time="12:00 PM">12:00 PM</div>
+                <div class="time-slot" data-time="2:00 PM">2:00 PM</div>
+                <div class="time-slot" data-time="3:00 PM">3:00 PM</div>
+                <div class="time-slot" data-time="4:00 PM">4:00 PM</div>
+            </div>
+
+            <label for="message">Additional Notes (Optional):</label>
+            <textarea id="message" name="message" rows="4" placeholder="Add any specific topics or questions you'd like to discuss"></textarea>
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+
+    <div class="chat-container" id="chatContainer" style="display: none;">
+        <div class="chat-header">
+            <h2>Chat with Mentor</h2>
+        </div>
+        <div id="chatMessages" class="chat-messages">
+            <!-- Messages will be dynamically added here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Type a message..." />
+            <button id="sendMessageButton">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        const socket = io('http://localhost:3000');
+        const chatContainer = document.getElementById('chatContainer');
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendMessageButton = document.getElementById('sendMessageButton');
+        const slotBookingForm = document.getElementById('slotBookingForm');
+
+        let chatId = null; // This will be set when a chat session is created
+
+        document.querySelectorAll('.time-slot').forEach(slot => {
+            slot.addEventListener('click', () => {
+                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                slot.classList.add('selected');
+                slotBookingForm.timeSlot = slot.getAttribute('data-time');
+            });
+        });
+
+        slotBookingForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const mentor = document.getElementById('mentor').value;
+            const date = document.getElementById('date').value;
+            const timeSlot = this.timeSlot;
+            const message = document.getElementById('message').value;
+
+            if (!timeSlot) {
+                alert('Please select a time slot!');
+                return;
+            }
+
+            alert(`Your slot has been booked with the following details:\nMentor: ${mentor}\nDate: ${date}\nTime: ${timeSlot}\nMessage: ${message}`);
+
+            // Assume a chat ID is created after booking
+            chatId = `${mentor}-${date}-${timeSlot}`;
+
+            // Show chat container and connect to the chat
+            chatContainer.style.display = 'block';
+            socket.emit('joinChat', { chatId });
+        });
+
+        socket.on('receiveMessage', ({ senderId, message, timestamp }) => {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = `[${timestamp}] ${senderId}: ${message}`;
+            chatMessages.appendChild(messageElement);
+        });
+
+        sendMessageButton.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message && chatId) {
+                socket.emit('sendMessage', { chatId, senderId: 'user', message });
+                messageInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
